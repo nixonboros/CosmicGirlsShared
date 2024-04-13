@@ -1,0 +1,4 @@
+repository "CosmicGirls@LeilaMei@cloud"
+  path "/"
+    br "/main"
+    co "/main"
