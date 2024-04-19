@@ -10,9 +10,6 @@ public class NoteObject : MonoBehaviour
 
     public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
 
-    public AudioSource tapSound;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +45,6 @@ public class NoteObject : MonoBehaviour
                     GameManager.instance.PerfectHit();
                     Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
                 }
-
-                tapSound.Play();
             }
 
         }

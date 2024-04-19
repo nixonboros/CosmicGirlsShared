@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioSource theMusic;
+    public AudioSource music;
+    public AudioSource missSound;
+    public AudioSource hitSound;
 
     public bool startPlaying;
 
@@ -55,11 +57,11 @@ public class GameManager : MonoBehaviour
                 startPlaying = true;
                 theBS.hasStarted = true;
 
-                theMusic.Play();
+                music.Play();
             }
        } 
        else {
-        if(!theMusic.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
+        if(!music.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
         {
             resultsScreen.SetActive(true);
             normalsText.text = "" + normalHits;
@@ -130,6 +132,11 @@ public class GameManager : MonoBehaviour
         NoteHit();
 
         normalHits++; //add one to amount of hits 
+
+        if (hitSound != null)
+        {
+            hitSound.Play();
+        }
     }
 
     public void GoodHit()
@@ -138,6 +145,11 @@ public class GameManager : MonoBehaviour
         NoteHit();
 
         goodHits++;
+
+        if (hitSound != null)
+        {
+            hitSound.Play();
+        }
     }
 
     public void PerfectHit()
@@ -146,11 +158,21 @@ public class GameManager : MonoBehaviour
         NoteHit();
 
         perfectHits++;
+
+        if (hitSound != null)
+        {
+            hitSound.Play();
+        }
     }
 
     public void NoteMissed()
     {
         Debug.Log("Missed Note");
+
+        if (missSound != null)
+        {
+            missSound.Play();
+        }
 
         currentMultiplier = 1;
         multiplierTracker = 0;
