@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public bool startPlaying;
 
-    public BeatScroller theBS;
+    public BeatScroller beatScroller;
 
     public static GameManager instance;
 
@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     public GameObject resultsScreen;
     public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
         maxCombo = 0;
 
         totalNotes = FindObjectsOfType<NoteObject>().Length; //total amount of notes
+
+        // Skip into the song
+        music.time = beatScroller.skipDuration;
     }
 
     // Update is called once per frame
@@ -52,7 +57,7 @@ public class GameManager : MonoBehaviour
         if (!startPlaying)
         {
             startPlaying = true;
-            theBS.hasStarted = true;
+            beatScroller.hasStarted = true;
 
             music.Play();
         }
