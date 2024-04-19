@@ -10,49 +10,55 @@ public class NoteObject : MonoBehaviour
 
     public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
 
+    public AudioSource tapSound;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(keyToPress))
+        if (Input.GetKeyDown(keyToPress))
         {
-            if(canBePressed)
+            if (canBePressed)
             {
                 gameObject.SetActive(false);
 
                 //GameManager.instance.NoteHit();
 
-                if(Mathf.Abs(transform.position.y) > 0.25) //for -.25 and .25
+                if (Mathf.Abs(transform.position.y) > 0.25) //for -.25 and .25
                 {
                     Debug.Log("Hit");
                     GameManager.instance.NormalHit();
                     Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
-                } else if(Mathf.Abs(transform.position.y) > 0.05f)
+                }
+                else if (Mathf.Abs(transform.position.y) > 0.05f)
                 {
                     Debug.Log("Good");
                     GameManager.instance.GoodHit();
                     Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
-                } else 
+                }
+                else
                 {
                     Debug.Log("Perfect");
                     GameManager.instance.PerfectHit();
                     Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
                 }
+
+                tapSound.Play();
             }
 
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Activator")
+        if (other.tag == "Activator")
         {
             canBePressed = true;
 
@@ -61,7 +67,7 @@ public class NoteObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(gameObject.activeInHierarchy)
+        if (gameObject.activeInHierarchy)
         {
             canBePressed = false;
 
