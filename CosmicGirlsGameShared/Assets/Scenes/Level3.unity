@@ -4255,8 +4255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatTempo: 126.4
-  hasStarted: 1
-  skipDuration: 3
+  hasStarted: 0
+  skipDuration: 7
 --- !u!4 &797012250
 Transform:
   m_ObjectHideFlags: 0
@@ -6352,7 +6352,7 @@ MonoBehaviour:
   missSound: {fileID: 1584718034}
   hitSound: {fileID: 2078959171}
   startPlaying: 0
-  theBS: {fileID: 797012249}
+  beatScroller: {fileID: 797012249}
   currentScore: 0
   scorePerNote: 100
   scorePerGoodNote: 125
