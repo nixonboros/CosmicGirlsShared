@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 9d063b79be80b2b4886e4c74b45f8a29
+guid: e04418e5594a4044e9dfc4b220bf1d8e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21300000
-    second: GoodEffect
+      213: 6609894105642088411
+    second: effects_0
   - first:
-      213: 21300002
-    second: HitEffect
+      213: 1957107745717523172
+    second: effects_1
   - first:
-      213: 21300004
-    second: PerfectEffect
+      213: -3914910146244942373
+    second: effects_2
   - first:
-      213: 21300006
-    second: MissEffect
+      213: -1166211891172804109
+    second: effects_3
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,129 +75,119 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 64
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GoodEffect
+      name: effects_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 50
-        width: 38
-        height: 14
+        x: 2
+        y: 45
+        width: 28
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a8944a8944471047a587d70991b2e8e
-      internalID: 21300000
+      spriteID: 32325b2bbc127bd4c99efcf069c7ac19
+      internalID: 1567768086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitEffect
+      name: effects_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 35
-        width: 24
-        height: 14
+        x: 34
+        y: 45
+        width: 28
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fff5794add04d3840a52f39e0e571279
-      internalID: 21300002
+      spriteID: 2523cb5d66f1fd8429096b3cdea06726
+      internalID: 1906316571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PerfectEffect
+      name: effects_2
       rect:
         serializedVersion: 2
-        x: 1
-        y: 20
-        width: 57
-        height: 14
+        x: 5
+        y: 13
+        width: 22
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f48030c8df85064faf77bea538ae7ff
-      internalID: 21300004
+      spriteID: b280fd3cec2e7da4a9ff75600f3fc8fc
+      internalID: -1989984261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MissEffect
+      name: effects_3
       rect:
         serializedVersion: 2
-        x: 1
-        y: 5
-        width: 36
-        height: 14
+        x: 34
+        y: 13
+        width: 28
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58c49b863487a9845bdffecc87f5c85e
-      internalID: 21300006
+      spriteID: c1650f89fab83c243bcec928ad81ced4
+      internalID: -1259764706
       vertices: []
       indices: 
       edges: []
@@ -205,7 +195,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c7f20af1e3192324c96c8b1dc3b02f2a
+    spriteID: b87e37205730dad48b5251b9aa98b071
     internalID: 0
     vertices: []
     indices: 
@@ -213,10 +203,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GoodEffect: 21300000
-      HitEffect: 21300002
-      MissEffect: 21300006
-      PerfectEffect: 21300004
+      effects_0: 1567768086
+      effects_1: 1906316571
+      effects_2: -1989984261
+      effects_3: -1259764706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
