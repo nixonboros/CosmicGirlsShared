@@ -11,10 +11,18 @@ public class BeatScroller : MonoBehaviour
 
     public float skipDuration = 0f; // Duration to skip into the song
 
+    private float pixelsPerSecond;
+    private float pixelsPerBeat;
+
     // Start is called before the first frame update
     void Start()
     {
         beatTempo = beatTempo / 15f;
+
+        // Calculate y pixels per beat
+        pixelsPerSecond = beatTempo;
+        pixelsPerBeat = pixelsPerSecond * (60f / 124f); // edit bpm (denominator) its an approximation
+        Debug.Log(pixelsPerBeat);
 
         // Skip into the song
         float skipDistance = beatTempo * skipDuration;
