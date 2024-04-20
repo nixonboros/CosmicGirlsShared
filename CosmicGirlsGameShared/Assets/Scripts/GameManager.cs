@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         scoreText.text = "Score: 0";
-        comboText.text = "Combo: 0x";
+        comboText.text = "0";
         comboCounter = 0;
         maxCombo = 0;
 
@@ -191,6 +191,6 @@ public class GameManager : MonoBehaviour
     void UpdateUI()
     {
         scoreText.text = "Score: " + currentScore; 
-        comboText.text = "Combo: " + comboCounter + "x";
+        comboText.text = "" + comboCounter;
     }
 }
