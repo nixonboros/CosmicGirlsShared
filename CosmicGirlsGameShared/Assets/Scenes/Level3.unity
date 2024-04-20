@@ -8769,7 +8769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatTempo: 124
   hasStarted: 0
-  skipDuration: 20
+  skipDuration: 0
 --- !u!4 &797012250
 Transform:
   m_ObjectHideFlags: 0
