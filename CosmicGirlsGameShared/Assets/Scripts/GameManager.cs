@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text comboText;
+    public Text startText; // Text to display "Press Space to Start"
 
     public float totalNotes;
     public float normalHits;
@@ -33,80 +34,102 @@ public class GameManager : MonoBehaviour
     public GameObject resultsScreen;
     public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
-
+    public bool gameStarted;
+    public delegate void GameStartedAction();
+    public static event GameStartedAction OnGameStarted;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
 
-        scoreText.text = "Score: 0";
-        comboText.text = "0";
+        scoreText.gameObject.SetActive(false);
+        comboText.gameObject.SetActive(false);
         comboCounter = 0;
         maxCombo = 0;
 
         totalNotes = FindObjectsOfType<NoteObject>().Length; //total amount of notes
 
-        // Skip into the song
+        // Display "Press Space to Start" text
+        startText.gameObject.SetActive(true);
+
         music.time = beatScroller.skipDuration;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!startPlaying)
+        if (!gameStarted && Input.GetKeyDown(KeyCode.Space))
         {
-            startPlaying = true;
-            beatScroller.hasStarted = true;
-
-            music.Play();
+            StartGame();
         }
-        else
+
+        if (gameStarted)
         {
-            if (!music.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
+            if (!startPlaying)
             {
-                resultsScreen.SetActive(true);
-                normalsText.text = "" + normalHits;
-                goodsText.text = goodHits.ToString(); //display value as string
-                perfectsText.text = perfectHits.ToString();
-                missesText.text = "" + missedHits;
+                startPlaying = true;
+                beatScroller.hasStarted = true;
 
-                float totalHit = normalHits + goodHits + perfectHits;
-                float percentHit = (totalHit / totalNotes) * 100f;
-
-                percentHitText.text = percentHit.ToString("F1") + "%"; //1dp
-
-                //ranks
-                string rankVal = "F";
-                if (percentHit > 40)
+                music.Play();
+            }
+            else
+            {
+                if (!music.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
                 {
-                    rankVal = "D";
-                    if (percentHit > 55)
+                    resultsScreen.SetActive(true);
+                    normalsText.text = "" + normalHits;
+                    goodsText.text = goodHits.ToString(); //display value as string
+                    perfectsText.text = perfectHits.ToString();
+                    missesText.text = "" + missedHits;
+
+                    float totalHit = normalHits + goodHits + perfectHits;
+                    float percentHit = (totalHit / totalNotes) * 100f;
+
+                    percentHitText.text = percentHit.ToString("F1") + "%"; //1dp
+
+                    //ranks
+                    string rankVal = "F";
+                    if (percentHit > 40)
                     {
-                        rankVal = "C";
-                        if (percentHit > 70)
+                        rankVal = "D";
+                        if (percentHit > 55)
                         {
-                            rankVal = "B";
-                            if (percentHit > 85)
+                            rankVal = "C";
+                            if (percentHit > 70)
                             {
-                                rankVal = "A";
-                                if (percentHit > 95)
+                                rankVal = "B";
+                                if (percentHit > 85)
                                 {
-                                    rankVal = "S";
+                                    rankVal = "A";
+                                    if (percentHit > 95)
+                                    {
+                                        rankVal = "S";
+                                    }
                                 }
                             }
                         }
                     }
+                    rankText.text = rankVal;
+                    finalScoreText.text = currentScore.ToString();
                 }
-                rankText.text = rankVal;
-                finalScoreText.text = currentScore.ToString();
             }
         }
     }
 
+    void StartGame()
+    {
+        gameStarted = true;
+        startText.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(true);
+        comboText.gameObject.SetActive(true);
+
+        // Fire the event when the game starts
+        OnGameStarted?.Invoke();
+    }
+
     public void NoteHit()
     {
-
         IncrementCombo();
 
         currentScore += scorePerNote * comboCounter;
@@ -159,7 +182,6 @@ public class GameManager : MonoBehaviour
 
     public void NoteMissed()
     {
-
         ResetCombo();
 
         if (missSound != null)
@@ -190,7 +212,7 @@ public class GameManager : MonoBehaviour
     // Updates the UI elements
     void UpdateUI()
     {
-        scoreText.text = "Score: " + currentScore; 
+        scoreText.text = "Score: " + currentScore;
         comboText.text = "" + comboCounter;
     }
 }
