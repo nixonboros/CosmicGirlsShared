@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioSource theMusic;
+    public AudioSource music;
+    public AudioSource missSound;
+    public AudioSource hitSound;
 
     public bool startPlaying;
 
-    public BeatScroller theBS;
+    public BeatScroller beatScroller;
 
     public static GameManager instance;
 
@@ -18,12 +18,11 @@ public class GameManager : MonoBehaviour
     public int scorePerGoodNote = 125;
     public int scorePerPerfectNote = 150;
 
-    public int currentMultiplier;
-    public int multiplierTracker;
-    public int[] multiplierThresholds; //making it harder to get to the next level
+    public int comboCounter; // Tracks the current combo
+    public int maxCombo; // Tracks the maximum combo achieved
 
     public Text scoreText;
-    public Text multiText;
+    public Text comboText;
 
     public float totalNotes;
     public float normalHits;
@@ -33,130 +32,165 @@ public class GameManager : MonoBehaviour
 
     public GameObject resultsScreen;
     public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;  
+        instance = this;
 
-        scoreText.text = "Score: 0";  
-        currentMultiplier = 1; //start at 1
+        scoreText.text = "Score: 0";
+        comboText.text = "Combo: 0x";
+        comboCounter = 0;
+        maxCombo = 0;
 
         totalNotes = FindObjectsOfType<NoteObject>().Length; //total amount of notes
+
+        // Skip into the song
+        music.time = beatScroller.skipDuration;
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(!startPlaying)
-       {
-            if(Input.anyKeyDown)
-            {
-                startPlaying = true;
-                theBS.hasStarted = true;
-
-                theMusic.Play();
-            }
-       } 
-       else {
-        if(!theMusic.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
+        if (!startPlaying)
         {
-            resultsScreen.SetActive(true);
-            normalsText.text = "" + normalHits;
-            goodsText.text = goodHits.ToString(); //display value as string
-            perfectsText.text = perfectHits.ToString();
-            missesText.text = "" + missedHits;
+            startPlaying = true;
+            beatScroller.hasStarted = true;
 
-            float totalHit = normalHits + goodHits + perfectHits;
-            float percentHit = (totalHit / totalNotes) * 100f;
-
-            percentHitText.text = percentHit.ToString("F1") + "%"; //1dp
-
-            //ranks
-            string rankVal = "F";
-            if(percentHit > 40)
+            music.Play();
+        }
+        else
+        {
+            if (!music.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
             {
-                rankVal = "D";
-                if(percentHit > 55)
+                resultsScreen.SetActive(true);
+                normalsText.text = "" + normalHits;
+                goodsText.text = goodHits.ToString(); //display value as string
+                perfectsText.text = perfectHits.ToString();
+                missesText.text = "" + missedHits;
+
+                float totalHit = normalHits + goodHits + perfectHits;
+                float percentHit = (totalHit / totalNotes) * 100f;
+
+                percentHitText.text = percentHit.ToString("F1") + "%"; //1dp
+
+                //ranks
+                string rankVal = "F";
+                if (percentHit > 40)
                 {
-                    rankVal = "C";
-                    if(percentHit > 70)
+                    rankVal = "D";
+                    if (percentHit > 55)
                     {
-                        rankVal = "B";
-                        if(percentHit > 85)
+                        rankVal = "C";
+                        if (percentHit > 70)
                         {
-                            rankVal = "A";
-                            if (percentHit > 95)
+                            rankVal = "B";
+                            if (percentHit > 85)
                             {
-                                rankVal = "S";
+                                rankVal = "A";
+                                if (percentHit > 95)
+                                {
+                                    rankVal = "S";
+                                }
                             }
                         }
-
                     }
                 }
-            } 
-            rankText.text = rankVal;
-            finalScoreText.text = currentScore.ToString();
-
+                rankText.text = rankVal;
+                finalScoreText.text = currentScore.ToString();
+            }
         }
-        
-       }
     }
 
     public void NoteHit()
     {
-       Debug.Log("Hit on time");
 
-        if(currentMultiplier - 1 < multiplierThresholds.Length)
+        IncrementCombo();
+
+        currentScore += scorePerNote * comboCounter;
+        UpdateUI();
+
+        if (hitSound != null)
         {
-            multiplierTracker++;
-
-            if(multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
-            {
-                multiplierTracker = 0;
-                currentMultiplier++;
-            }
+            hitSound.Play();
         }
-
-        multiText.text = "Multiplier: x" + currentMultiplier; //update UI text
-
-       //currentScore += scorePerNote* currentMultiplier; //multiply score
-       scoreText.text = "Score: " + currentScore;
     }
 
     public void NormalHit()
     {
-        currentScore += scorePerNote * currentMultiplier;
+        currentScore += scorePerNote * comboCounter;
         NoteHit();
 
         normalHits++; //add one to amount of hits 
+
+        if (hitSound != null)
+        {
+            hitSound.Play();
+        }
     }
 
     public void GoodHit()
     {
-        currentScore += scorePerGoodNote * currentMultiplier;
+        currentScore += scorePerGoodNote * comboCounter;
         NoteHit();
 
         goodHits++;
+
+        if (hitSound != null)
+        {
+            hitSound.Play();
+        }
     }
 
     public void PerfectHit()
     {
-        currentScore += scorePerPerfectNote * currentMultiplier;
+        currentScore += scorePerPerfectNote * comboCounter;
         NoteHit();
 
         perfectHits++;
+
+        if (hitSound != null)
+        {
+            hitSound.Play();
+        }
     }
 
     public void NoteMissed()
     {
-        Debug.Log("Missed Note");
 
-        currentMultiplier = 1;
-        multiplierTracker = 0;
+        ResetCombo();
 
-        multiText.text = "Multiplier: x" + currentMultiplier;
+        if (missSound != null)
+        {
+            missSound.Play();
+        }
 
         missedHits++;
+        UpdateUI();
+    }
+
+    // Increments the combo counter and updates maxCombo if necessary
+    void IncrementCombo()
+    {
+        comboCounter++;
+        if (comboCounter > maxCombo)
+        {
+            maxCombo = comboCounter;
+        }
+    }
+
+    // Resets the combo counter
+    void ResetCombo()
+    {
+        comboCounter = 0;
+    }
+
+    // Updates the UI elements
+    void UpdateUI()
+    {
+        scoreText.text = "Score: " + currentScore; 
+        comboText.text = "Combo: " + comboCounter + "x";
     }
 }
