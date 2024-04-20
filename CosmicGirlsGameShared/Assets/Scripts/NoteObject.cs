@@ -27,13 +27,13 @@ public class NoteObject : MonoBehaviour
 
                 //GameManager.instance.NoteHit();
 
-                if (Mathf.Abs(transform.position.y) > 0.7f) 
+                if (Mathf.Abs(transform.position.y) > 1f) 
                 {
                     Debug.Log("Hit");
                     GameManager.instance.NormalHit();
                     Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
                 }
-                else if (Mathf.Abs(transform.position.y) > 0.4f)
+                else if (Mathf.Abs(transform.position.y) > 0.5f)
                 {
                     Debug.Log("Good");
                     GameManager.instance.GoodHit();
