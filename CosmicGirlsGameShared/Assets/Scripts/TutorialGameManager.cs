@@ -26,7 +26,7 @@ public class TutorialGameManager : MonoBehaviour
     public Text comboText;
     public Text startText;
     public GameObject buttonCanvas;
-
+    public GameObject DFJKCanvas;
 
     public float normalHits;
     public float goodHits;
@@ -186,6 +186,7 @@ public class TutorialGameManager : MonoBehaviour
         scoreText.gameObject.SetActive(false);
         comboText.gameObject.SetActive(false);
         buttonCanvas.SetActive(false);
+        DFJKCanvas.SetActive(false);
 
         if (tutorialCompletedSound != null)
         {
