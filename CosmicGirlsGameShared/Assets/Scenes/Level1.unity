@@ -11698,8 +11698,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2761698061d6b3e46a0c8e11a33b25c2, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2761698061d6b3e46a0c8e11a33b25c2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7bfffbd732bb52a438bde5d3b82d8596, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7bfffbd732bb52a438bde5d3b82d8596, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
@@ -18600,7 +18600,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 1008309237}
-  missSound: {fileID: 0}
   hitSound: {fileID: 2078959171}
   startPlaying: 0
   beatScroller: {fileID: 797012249}
