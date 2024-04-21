@@ -1,17 +1,18 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class TutorialGameManager : MonoBehaviour
 {
-    public AudioSource music;
     public AudioSource hitSound;
+    public AudioSource tutorialCompletedSound;
+    public AudioSource BackgroundMusic;
 
     public bool startPlaying;
 
     public BeatScroller beatScroller;
 
-    public static GameManager instance;
+    public static TutorialGameManager instance;
 
     public int currentScore;
     public int scorePerNote = 100;
@@ -23,16 +24,17 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text comboText;
-    public Text startText; // Text to display "Press Space to Start"
+    public Text startText;
+    public GameObject buttonCanvas;
 
-    public float totalNotes;
+
     public float normalHits;
     public float goodHits;
     public float perfectHits;
     public float missedHits;
 
-    public GameObject resultsScreen;
-    public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
+    public GameObject dialogueCanvas;
+    public DialogueManager dialogueManager;
 
     public bool gameStarted;
     public delegate void GameStartedAction();
@@ -48,12 +50,9 @@ public class GameManager : MonoBehaviour
         comboCounter = 0;
         maxCombo = 0;
 
-        totalNotes = FindObjectsOfType<NoteObject>().Length; //total amount of notes
+        dialogueCanvas.SetActive(false);
 
-        // Display "Press Space to Start" text
         startText.gameObject.SetActive(true);
-
-        music.time = beatScroller.skipDuration;
     }
 
     // Update is called once per frame
@@ -70,49 +69,15 @@ public class GameManager : MonoBehaviour
             {
                 startPlaying = true;
                 beatScroller.hasStarted = true;
-
-                music.Play();
             }
-            else
+
+            if (normalHits + goodHits + perfectHits >= 8)
             {
-                if (!music.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
-                {
-                    resultsScreen.SetActive(true);
-                    normalsText.text = "" + normalHits;
-                    goodsText.text = goodHits.ToString(); //display value as string
-                    perfectsText.text = perfectHits.ToString();
-                    missesText.text = "" + missedHits;
-
-                    float totalHit = normalHits + goodHits + perfectHits;
-                    float percentHit = (totalHit / totalNotes) * 100f;
-
-                    percentHitText.text = percentHit.ToString("F1") + "%"; //1dp
-
-                    //ranks
-                    string rankVal = "F";
-                    if (percentHit > 40)
-                    {
-                        rankVal = "D";
-                        if (percentHit > 55)
-                        {
-                            rankVal = "C";
-                            if (percentHit > 70)
-                            {
-                                rankVal = "B";
-                                if (percentHit > 85)
-                                {
-                                    rankVal = "A";
-                                    if (percentHit > 95)
-                                    {
-                                        rankVal = "S";
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    rankText.text = rankVal;
-                    finalScoreText.text = currentScore.ToString();
-                }
+                ShowDialogueAgain();
+            }
+            if (missedHits > 0)
+            {
+                SceneManager.LoadScene("Level0");
             }
         }
     }
@@ -211,8 +176,25 @@ public class GameManager : MonoBehaviour
         comboText.text = "" + comboCounter;
     }
 
-    public static implicit operator GameManager(TutorialGameManager v)
+    // Show the dialogue again after completing the tutorial
+    void ShowDialogueAgain()
     {
-        throw new NotImplementedException();
+        gameStarted = false;
+        dialogueCanvas.SetActive(true);
+        dialogueManager.ResetDialogue();
+
+        scoreText.gameObject.SetActive(false);
+        comboText.gameObject.SetActive(false);
+        buttonCanvas.SetActive(false);
+
+        if (tutorialCompletedSound != null)
+        {
+            tutorialCompletedSound.Play();
+        }
+
+        if (BackgroundMusic != null)
+        {
+            BackgroundMusic.Play();
+        }
     }
 }

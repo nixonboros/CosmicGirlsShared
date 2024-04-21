@@ -18,7 +18,7 @@ public class BeatScroller : MonoBehaviour
         // Calculate y pixels per beat
         pixelsPerSecond = beatTempo;
         pixelsPerBeat = pixelsPerSecond * (60f / 116f); // edit bpm (denominator) its an approximation
-        Debug.Log("Pixels per beat: " + pixelsPerBeat);
+        //Debug.Log("Pixels per beat: " + pixelsPerBeat);
 
         // Skip into the song
         float skipDistance = beatTempo * skipDuration;

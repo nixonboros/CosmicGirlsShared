@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NoteObject : MonoBehaviour
 {
@@ -27,22 +29,43 @@ public class NoteObject : MonoBehaviour
 
                 //GameManager.instance.NoteHit();
 
-                if (Mathf.Abs(transform.position.y) > 1f) 
+                if (Mathf.Abs(transform.position.y) > 1f)
                 {
                     Debug.Log("Hit");
-                    GameManager.instance.NormalHit();
+                    if (SceneManager.GetActiveScene().name == "Level0") {
+                        TutorialGameManager.instance.NormalHit();
+                    }
+                    else
+                    {
+                        GameManager.instance.NormalHit();
+                    }
+                      
                     Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
                 }
                 else if (Mathf.Abs(transform.position.y) > 0.5f)
                 {
                     Debug.Log("Good");
-                    GameManager.instance.GoodHit();
+                    if (SceneManager.GetActiveScene().name == "Level0")
+                    {
+                        TutorialGameManager.instance.GoodHit();
+                    }
+                    else
+                    {
+                        GameManager.instance.GoodHit();
+                    }
                     Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
                 }
                 else
                 {
                     Debug.Log("Perfect");
-                    GameManager.instance.PerfectHit();
+                    if (SceneManager.GetActiveScene().name == "Level0")
+                    {
+                        TutorialGameManager.instance.PerfectHit();
+                    }
+                    else
+                    {
+                        GameManager.instance.PerfectHit();
+                    }
                     Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
                 }
             }
@@ -66,7 +89,14 @@ public class NoteObject : MonoBehaviour
         {
             canBePressed = false;
 
-            GameManager.instance.NoteMissed();
+            if (SceneManager.GetActiveScene().name == "Level0")
+            {
+                TutorialGameManager.instance.NoteMissed();
+            }
+            else
+            {
+                GameManager.instance.NoteMissed();
+            }
             Instantiate(missEffect, transform.position, missEffect.transform.rotation);
 
         }
