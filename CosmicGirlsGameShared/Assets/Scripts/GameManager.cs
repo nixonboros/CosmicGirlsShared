@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
     // Updates the UI elements
     void UpdateUI()
     {
-        scoreText.text = "Score: " + currentScore;
+        scoreText.text = "Score:" + currentScore;
         comboText.text = "" + comboCounter;
     }
 }
