@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Yeoreum_mouth_closed_0: 5583070748041993499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
