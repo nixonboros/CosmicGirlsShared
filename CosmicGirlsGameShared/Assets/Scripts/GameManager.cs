@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public AudioSource music;
-    public AudioSource missSound;
     public AudioSource hitSound;
 
     public bool startPlaying;
@@ -183,11 +182,6 @@ public class GameManager : MonoBehaviour
     public void NoteMissed()
     {
         ResetCombo();
-
-        if (missSound != null)
-        {
-            missSound.Play();
-        }
 
         missedHits++;
         UpdateUI();
