@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,20 +24,28 @@ public class NoteObject : MonoBehaviour
             {
                 gameObject.SetActive(false);
 
-                //GameManager.instance.NoteHit();
+                // Get the x-axis position where the note was pressed
+                Vector3 notePosition = transform.position;
+
+                // Set the y-axis position to the bottom 3/4 of the screen
+                Vector3 effectPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 4, Camera.main.nearClipPlane));
+
+                // Set the x-axis position to where the note was pressed
+                effectPosition.x = notePosition.x;
 
                 if (Mathf.Abs(transform.position.y) > 1f)
                 {
                     Debug.Log("Hit");
-                    if (SceneManager.GetActiveScene().name == "Level0") {
+                    if (SceneManager.GetActiveScene().name == "Level0")
+                    {
                         TutorialGameManager.instance.NormalHit();
                     }
                     else
                     {
                         GameManager.instance.NormalHit();
                     }
-                      
-                    Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+
+                    Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
                 }
                 else if (Mathf.Abs(transform.position.y) > 0.5f)
                 {
@@ -53,7 +58,7 @@ public class NoteObject : MonoBehaviour
                     {
                         GameManager.instance.GoodHit();
                     }
-                    Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
+                    Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
                 }
                 else
                 {
@@ -66,7 +71,7 @@ public class NoteObject : MonoBehaviour
                     {
                         GameManager.instance.PerfectHit();
                     }
-                    Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
+                    Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
                 }
             }
 
@@ -97,8 +102,17 @@ public class NoteObject : MonoBehaviour
             {
                 GameManager.instance.NoteMissed();
             }
-            Instantiate(missEffect, transform.position, missEffect.transform.rotation);
 
+            // Get the x-axis position where the note was pressed
+            Vector3 notePosition = transform.position;
+
+            // Set the y-axis position to the bottom 3/4 of the screen
+            Vector3 effectPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 4, Camera.main.nearClipPlane));
+
+            // Set the x-axis position to where the note was pressed
+            effectPosition.x = notePosition.x;
+
+            Instantiate(missEffect, effectPosition, missEffect.transform.rotation);
         }
     }
 }
