@@ -4453,7 +4453,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &382892687
 Canvas:
   m_ObjectHideFlags: 0
@@ -4464,7 +4464,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4484,20 +4484,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382892685}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.009214119, y: 0.009214119, z: 0.009214119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9971088, y: 0.9971088, z: 0.9971088}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 339394526}
   - {fileID: 297384310}
   - {fileID: 2053331600}
   - {fileID: 1747965815}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1605572182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 4.4}
+  m_AnchoredPosition: {x: 959.9999, y: 541.0766}
   m_SizeDelta: {x: 1920.0002, y: 1085.291}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &383423976
@@ -18846,6 +18846,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music: {fileID: 1008309237}
   hitSound: {fileID: 2078959171}
+  backgroundVideo: {fileID: 0}
+  progressBar: {fileID: 0}
   startPlaying: 0
   beatScroller: {fileID: 797012249}
   currentScore: 0
@@ -18857,6 +18859,7 @@ MonoBehaviour:
   scoreText: {fileID: 624648274}
   comboText: {fileID: 2046179001}
   startText: {fileID: 1532763232}
+  musicLength: 0
   totalNotes: 0
   normalHits: 0
   goodHits: 0
@@ -20007,6 +20010,7 @@ RectTransform:
   - {fileID: 1532763230}
   - {fileID: 1894841109}
   - {fileID: 766832846}
+  - {fileID: 382892688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -28283,4 +28287,3 @@ SceneRoots:
   - {fileID: 1532522046}
   - {fileID: 1008309238}
   - {fileID: 2078959172}
-  - {fileID: 382892688}

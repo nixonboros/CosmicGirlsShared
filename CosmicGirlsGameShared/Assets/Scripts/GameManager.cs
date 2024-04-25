@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public AudioSource music;
     public AudioSource hitSound;
-    public VideoPlayer backgroundVideo; 
+    public VideoPlayer backgroundVideo;
+    public Slider progressBar;
 
     public bool startPlaying;
 
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text comboText;
     public Text startText; // Text to display "Press Space to Start"
+
+    public float musicLength; // Length of the music clip
 
     public float totalNotes;
     public float normalHits;
@@ -47,15 +50,20 @@ public class GameManager : MonoBehaviour
 
         scoreText.gameObject.SetActive(false);
         comboText.gameObject.SetActive(false);
+        progressBar.gameObject.SetActive(false);
         comboCounter = 0;
         maxCombo = 0;
 
         totalNotes = FindObjectsOfType<NoteObject>().Length; //total amount of notes
 
+        musicLength = music.clip.length;
+
         // Display "Press Space to Start" text
         startText.gameObject.SetActive(true);
 
         music.time = beatScroller.skipDuration;
+
+        progressBar.maxValue = musicLength;
     }
 
     // Update is called once per frame
@@ -68,6 +76,8 @@ public class GameManager : MonoBehaviour
 
         if (gameStarted)
         {
+            progressBar.value = music.time;
+
             if (!startPlaying)
             {
                 startPlaying = true;
@@ -125,6 +135,7 @@ public class GameManager : MonoBehaviour
         startText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(true);
         comboText.gameObject.SetActive(true);
+        progressBar.gameObject.SetActive(true);
 
         if (backgroundVideo != null)
         {
