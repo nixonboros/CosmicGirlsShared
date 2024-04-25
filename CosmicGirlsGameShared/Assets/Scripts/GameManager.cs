@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
     public AudioSource music;
     public AudioSource hitSound;
+    public VideoPlayer backgroundVideo; 
 
     public bool startPlaying;
 
@@ -123,6 +125,11 @@ public class GameManager : MonoBehaviour
         startText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(true);
         comboText.gameObject.SetActive(true);
+
+        if (backgroundVideo != null)
+        {
+            backgroundVideo.Play();
+        }
 
         // Fire the event when the game starts
         OnGameStarted?.Invoke();
