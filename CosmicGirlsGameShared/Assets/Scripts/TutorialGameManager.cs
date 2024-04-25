@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class TutorialGameManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class TutorialGameManager : MonoBehaviour
     public AudioSource hitSound;
     public AudioSource tutorialCompletedSound;
     public AudioSource BackgroundMusic;
+    public VideoPlayer backgroundVideo;
+    public Slider progressBar;
 
     public bool startPlaying;
 
@@ -28,6 +31,8 @@ public class TutorialGameManager : MonoBehaviour
     public Text startText;
     public GameObject buttonCanvas;
     public GameObject DFJKCanvas;
+
+    public float musicLength; // Length of the music clip
 
     public float normalHits;
     public float goodHits;
@@ -50,14 +55,19 @@ public class TutorialGameManager : MonoBehaviour
 
         scoreText.gameObject.SetActive(false);
         comboText.gameObject.SetActive(false);
+        progressBar.gameObject.SetActive(false);
         comboCounter = 0;
         maxCombo = 0;
+
+        musicLength = music.clip.length;
 
         dialogueCanvas.SetActive(false);
 
         music.time = beatScroller.skipDuration;
 
         startText.gameObject.SetActive(true);
+
+        progressBar.maxValue = musicLength;
 
     }
 
@@ -71,6 +81,7 @@ public class TutorialGameManager : MonoBehaviour
 
         if (gameStarted)
         {
+            progressBar.value = music.time;
             if (!startPlaying)
             {
                 startPlaying = true;
@@ -105,6 +116,12 @@ public class TutorialGameManager : MonoBehaviour
         startText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(true);
         comboText.gameObject.SetActive(true);
+        progressBar.gameObject.SetActive(true);
+
+        if (backgroundVideo != null)
+        {
+            backgroundVideo.Play();
+        }
 
         // Fire the event when the game starts
         OnGameStarted?.Invoke();
