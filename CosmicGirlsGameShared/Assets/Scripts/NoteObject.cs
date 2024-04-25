@@ -12,7 +12,6 @@ public class NoteObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -44,7 +43,7 @@ public class NoteObject : MonoBehaviour
                     {
                         GameManager.instance.NormalHit();
                     }
-
+                    Destroy(gameObject);
                     Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
                 }
                 else if (Mathf.Abs(transform.position.y) > 0.5f)
@@ -58,6 +57,7 @@ public class NoteObject : MonoBehaviour
                     {
                         GameManager.instance.GoodHit();
                     }
+                    Destroy(gameObject);
                     Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
                 }
                 else
@@ -71,6 +71,7 @@ public class NoteObject : MonoBehaviour
                     {
                         GameManager.instance.PerfectHit();
                     }
+                    Destroy(gameObject);
                     Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
                 }
             }
@@ -92,6 +93,8 @@ public class NoteObject : MonoBehaviour
     {
         if (gameObject.activeInHierarchy)
         {
+            Destroy(gameObject);
+
             canBePressed = false;
 
             if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
