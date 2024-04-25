@@ -219,6 +219,8 @@ public class TutorialGameManager : MonoBehaviour
         scoreText.gameObject.SetActive(false);
         comboText.gameObject.SetActive(false);
         buttonCanvas.SetActive(false);
+        progressBar.gameObject.SetActive(false);
+
 
         if (tutorialCompletedSound != null)
         {
