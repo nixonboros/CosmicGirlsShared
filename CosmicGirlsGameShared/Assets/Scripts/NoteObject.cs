@@ -36,7 +36,7 @@ public class NoteObject : MonoBehaviour
                 if (Mathf.Abs(transform.position.y) > 1f)
                 {
                     Debug.Log("Hit");
-                    if (SceneManager.GetActiveScene().name == "Level0")
+                    if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
                     {
                         TutorialGameManager.instance.NormalHit();
                     }
@@ -50,7 +50,7 @@ public class NoteObject : MonoBehaviour
                 else if (Mathf.Abs(transform.position.y) > 0.5f)
                 {
                     Debug.Log("Good");
-                    if (SceneManager.GetActiveScene().name == "Level0")
+                    if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
                     {
                         TutorialGameManager.instance.GoodHit();
                     }
@@ -63,7 +63,7 @@ public class NoteObject : MonoBehaviour
                 else
                 {
                     Debug.Log("Perfect");
-                    if (SceneManager.GetActiveScene().name == "Level0")
+                    if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
                     {
                         TutorialGameManager.instance.PerfectHit();
                     }
@@ -94,7 +94,7 @@ public class NoteObject : MonoBehaviour
         {
             canBePressed = false;
 
-            if (SceneManager.GetActiveScene().name == "Level0")
+            if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
             {
                 TutorialGameManager.instance.NoteMissed();
             }

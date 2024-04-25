@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level0.unity
+    path: Assets/Scenes/Level0Tutorial.unity
     guid: f17833159ed480f40955167fa1b3edc8
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level0Dialogue.unity
     guid: 99ed43ae4862cb9439a00d394474039c
+  - enabled: 1
+    path: Assets/Scenes/Level0.unity
+    guid: ce7987b9fa5b4774db5ac84ab83a07e2
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

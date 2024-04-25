@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class TutorialGameManager : MonoBehaviour
 {
+    public AudioSource music;
     public AudioSource hitSound;
     public AudioSource tutorialCompletedSound;
     public AudioSource BackgroundMusic;
@@ -40,6 +41,8 @@ public class TutorialGameManager : MonoBehaviour
     public delegate void GameStartedAction();
     public static event GameStartedAction OnGameStarted;
 
+    public Transform noteHolder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +55,10 @@ public class TutorialGameManager : MonoBehaviour
 
         dialogueCanvas.SetActive(false);
 
+        music.time = beatScroller.skipDuration;
+
         startText.gameObject.SetActive(true);
+
     }
 
     // Update is called once per frame
@@ -69,15 +75,26 @@ public class TutorialGameManager : MonoBehaviour
             {
                 startPlaying = true;
                 beatScroller.hasStarted = true;
-            }
 
-            if (normalHits + goodHits + perfectHits >= 8)
-            {
-                ShowDialogueAgain();
+                music.Play();
             }
-            if (missedHits > 0)
+            if (SceneManager.GetActiveScene().name == "Level0Tutorial")
             {
-                SceneManager.LoadScene("Level0");
+                if (normalHits + goodHits + perfectHits >= noteHolder.childCount)
+                {
+                    ShowDialogueAgain();
+                }
+                if (missedHits > 0)
+                {
+                    SceneManager.LoadScene("Level0Tutorial");
+                }
+            }
+            else if (SceneManager.GetActiveScene().name == "Level0")
+            {
+                if (!music.isPlaying)
+                {
+                    ShowDialogueAgain();
+                }
             }
         }
     }
