@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Level0Tutorial" || SceneManager.GetActiveScene().name == "Level0")
+        if (SceneManager.GetActiveScene().name == "Level0Tutorial")
         {
             if (!tutorialCompleted && TutorialGameManager.instance.normalHits + TutorialGameManager.instance.goodHits + TutorialGameManager.instance.perfectHits >= 8)
             {
@@ -38,14 +38,23 @@ public class DialogueManager : MonoBehaviour
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name == "Level0Tutorial")
-                    {
-                        SceneManager.LoadScene("Level0");
-                    }
-                    else if (SceneManager.GetActiveScene().name == "Level0")
-                    {
-                        SceneManager.LoadScene("MainMenu");
-                    }
+                    SceneManager.LoadScene("Level0");
+                }
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Level0")
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                dialogueClickCount++;
+                if (dialogueClickCount < dialogues.Length)
+                {
+                    currentDialogueIndex++;
+                    UpdateDialogue();
+                }
+                else
+                {
+                    SceneManager.LoadScene("MainMenu");
                 }
             }
         }
@@ -66,6 +75,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+
 
     void UpdateDialogue()
     {

@@ -30,6 +30,7 @@ public class TutorialGameManager : MonoBehaviour
     public Text comboText;
     public Text startText;
     public GameObject buttonCanvas;
+    public Image PlayfieldPanel;
 
     public float musicLength; // Length of the music clip
 
@@ -44,8 +45,6 @@ public class TutorialGameManager : MonoBehaviour
     public bool gameStarted;
     public delegate void GameStartedAction();
     public static event GameStartedAction OnGameStarted;
-
-    public Transform noteHolder;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +89,7 @@ public class TutorialGameManager : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name == "Level0Tutorial")
             {
-                if (normalHits + goodHits + perfectHits >= noteHolder.childCount)
+                if (normalHits + goodHits + perfectHits >= 8)
                 {
                     ShowDialogueAgain();
                 }
@@ -116,6 +115,7 @@ public class TutorialGameManager : MonoBehaviour
         scoreText.gameObject.SetActive(true);
         comboText.gameObject.SetActive(true);
         progressBar.gameObject.SetActive(true);
+        PlayfieldPanel.gameObject.SetActive(true);
 
         if (backgroundVideo != null)
         {
@@ -220,6 +220,8 @@ public class TutorialGameManager : MonoBehaviour
         comboText.gameObject.SetActive(false);
         buttonCanvas.SetActive(false);
         progressBar.gameObject.SetActive(false);
+        backgroundVideo.gameObject.SetActive(false);
+        PlayfieldPanel.gameObject.SetActive(false);
 
 
         if (tutorialCompletedSound != null)

@@ -9509,7 +9509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatTempo: 112
   hasStarted: 0
-  skipDuration: 0
+  skipDuration: 80
 --- !u!4 &797012250
 Transform:
   m_ObjectHideFlags: 0
@@ -14202,7 +14202,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1545742483}
   m_Father: {fileID: 2027578055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -17563,6 +17564,7 @@ MonoBehaviour:
   comboText: {fileID: 1268490875}
   startText: {fileID: 971348501}
   buttonCanvas: {fileID: 2125296780}
+  PlayfieldPanel: {fileID: 1224868873}
   musicLength: 0
   normalHits: 0
   goodHits: 0
@@ -17571,7 +17573,6 @@ MonoBehaviour:
   dialogueCanvas: {fileID: 1003520192}
   dialogueManager: {fileID: 1974714359}
   gameStarted: 0
-  noteHolder: {fileID: 797012250}
 --- !u!114 &1532522049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17614,12 +17615,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2027578055}
+  m_Father: {fileID: 1224868872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -0.000021070242}
+  m_AnchoredPosition: {x: -4, y: 0}
+  m_SizeDelta: {x: 1359.6002, y: -0.000021070242}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545742484
 MonoBehaviour:
@@ -22599,7 +22600,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1224868872}
-  - {fileID: 1545742483}
   - {fileID: 43474907}
   - {fileID: 1268490874}
   - {fileID: 971348500}
