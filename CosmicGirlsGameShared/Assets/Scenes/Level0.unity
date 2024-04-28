@@ -16325,7 +16325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatTempo: 112
   hasStarted: 0
-  skipDuration: 50
+  skipDuration: 0
 --- !u!4 &797012250
 Transform:
   m_ObjectHideFlags: 0
