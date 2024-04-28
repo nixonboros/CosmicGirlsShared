@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using System.Diagnostics;
 
 public class TutorialGameManager : MonoBehaviour
 {
@@ -222,7 +223,6 @@ public class TutorialGameManager : MonoBehaviour
         backgroundVideo.gameObject.SetActive(false);
         PlayfieldPanel.gameObject.SetActive(false);
 
-
         if (tutorialCompletedSound != null)
         {
             tutorialCompletedSound.Play();
@@ -232,5 +232,7 @@ public class TutorialGameManager : MonoBehaviour
         {
             BackgroundMusic.Play();
         }
+
+        gameStarted = false;
     }
 }
