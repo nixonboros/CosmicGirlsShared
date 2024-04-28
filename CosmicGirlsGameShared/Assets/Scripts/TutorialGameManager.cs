@@ -212,7 +212,6 @@ public class TutorialGameManager : MonoBehaviour
     // Show the dialogue again after completing the tutorial
     void ShowDialogueAgain()
     {
-        gameStarted = false;
         dialogueCanvas.SetActive(true);
         dialogueManager.ResetDialogue();
 
