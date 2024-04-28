@@ -44,7 +44,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level0")
         {
-            if (Input.GetMouseButtonDown(0))
+            if (!TutorialGameManager.instance.music.isPlaying && Input.GetMouseButtonDown(0))
             {
                 dialogueClickCount++;
                 if (dialogueClickCount < dialogues.Length)
