@@ -14,6 +14,7 @@ public class TutorialGameManager : MonoBehaviour
     public Slider progressBar;
 
     public bool startPlaying;
+    private bool dialogueShown = false;
 
     public BeatScroller beatScroller;
 
@@ -75,7 +76,10 @@ public class TutorialGameManager : MonoBehaviour
     {
         if (!gameStarted && Input.GetKeyDown(KeyCode.Space))
         {
-            StartGame();
+            if (!dialogueShown)
+            {
+                StartGame();
+            }
         }
 
         if (gameStarted)
@@ -213,26 +217,30 @@ public class TutorialGameManager : MonoBehaviour
     // Show the dialogue again after completing the tutorial
     void ShowDialogueAgain()
     {
-        dialogueCanvas.SetActive(true);
-        dialogueManager.ResetDialogue();
-
-        scoreText.gameObject.SetActive(false);
-        comboText.gameObject.SetActive(false);
-        buttonCanvas.SetActive(false);
-        progressBar.gameObject.SetActive(false);
-        backgroundVideo.gameObject.SetActive(false);
-        PlayfieldPanel.gameObject.SetActive(false);
-
-        if (tutorialCompletedSound != null)
+        if (!dialogueShown)
         {
-            tutorialCompletedSound.Play();
-        }
+            dialogueShown = true;
+            dialogueCanvas.SetActive(true);
+            dialogueManager.ResetDialogue();
 
-        if (BackgroundMusic != null)
-        {
-            BackgroundMusic.Play();
-        }
+            scoreText.gameObject.SetActive(false);
+            comboText.gameObject.SetActive(false);
+            buttonCanvas.SetActive(false);
+            progressBar.gameObject.SetActive(false);
+            backgroundVideo.gameObject.SetActive(false);
+            PlayfieldPanel.gameObject.SetActive(false);
 
-        gameStarted = false;
+            if (tutorialCompletedSound != null)
+            {
+                tutorialCompletedSound.Play();
+            }
+
+            if (BackgroundMusic != null)
+            {
+                BackgroundMusic.Play();
+            }
+
+            gameStarted = false;
+        }
     }
 }
