@@ -153,49 +153,25 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerNote * comboCounter;
         UpdateUI();
 
-        if (hitSound != null)
-        {
-            hitSound.Play();
-        }
+        hitSound.Play();
     }
 
     public void NormalHit()
     {
-        currentScore += scorePerNote * comboCounter;
         NoteHit();
-
         normalHits++; //add one to amount of hits 
-
-        if (hitSound != null)
-        {
-            hitSound.Play();
-        }
     }
 
     public void GoodHit()
     {
-        currentScore += scorePerGoodNote * comboCounter;
         NoteHit();
-
         goodHits++;
-
-        if (hitSound != null)
-        {
-            hitSound.Play();
-        }
     }
 
     public void PerfectHit()
     {
-        currentScore += scorePerPerfectNote * comboCounter;
         NoteHit();
-
         perfectHits++;
-
-        if (hitSound != null)
-        {
-            hitSound.Play();
-        }
     }
 
     public void NoteMissed()

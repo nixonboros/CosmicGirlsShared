@@ -30054,7 +30054,7 @@ MonoBehaviour:
   hitSound: {fileID: 2078959171}
   tutorialCompletedSound: {fileID: 1857448301}
   BackgroundMusic: {fileID: 737965416}
-  backgroundVideo: {fileID: 1864027004}
+  backgroundVideo: {fileID: 0}
   progressBar: {fileID: 655309976}
   startPlaying: 0
   beatScroller: {fileID: 797012249}
