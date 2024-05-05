@@ -32,7 +32,7 @@ public class NoteObject : MonoBehaviour
                 // Set the x-axis position to where the note was pressed
                 effectPosition.x = notePosition.x;
 
-                if (Mathf.Abs(transform.position.y) > 1f)
+                if (Mathf.Abs(transform.position.y) > 0.6f)
                 {
                     Debug.Log("Hit");
                     if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
@@ -46,7 +46,7 @@ public class NoteObject : MonoBehaviour
                     Destroy(gameObject);
                     Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
                 }
-                else if (Mathf.Abs(transform.position.y) > 0.5f)
+                else if (Mathf.Abs(transform.position.y) > 0.4f)
                 {
                     Debug.Log("Good");
                     if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")

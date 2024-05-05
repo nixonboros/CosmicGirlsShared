@@ -1042,7 +1042,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 1.6
 --- !u!1 &43474906
 GameObject:
   m_ObjectHideFlags: 0
@@ -6889,7 +6889,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 1.6
 --- !u!1 &337868403
 GameObject:
   m_ObjectHideFlags: 0
@@ -9245,7 +9245,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 1.6
 --- !u!1 &462400653
 GameObject:
   m_ObjectHideFlags: 0
@@ -16262,7 +16262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatTempo: 112
   hasStarted: 0
-  skipDuration: 82
+  skipDuration: 30
 --- !u!4 &797012250
 Transform:
   m_ObjectHideFlags: 0
@@ -30077,6 +30077,7 @@ MonoBehaviour:
   dialogueCanvas: {fileID: 1003520192}
   dialogueManager: {fileID: 1974714359}
   gameStarted: 0
+  gameFinished: 0
 --- !u!114 &1532522049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40051,7 +40052,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 1.6
 --- !u!1 &1956596776
 GameObject:
   m_ObjectHideFlags: 0
