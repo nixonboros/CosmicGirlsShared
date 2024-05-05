@@ -45,6 +45,7 @@ public class TutorialGameManager : MonoBehaviour
     public DialogueManager dialogueManager;
 
     public bool gameStarted;
+    public bool gameFinished;
     public delegate void GameStartedAction();
     public static event GameStartedAction OnGameStarted;
 
@@ -116,6 +117,7 @@ public class TutorialGameManager : MonoBehaviour
     void StartGame()
     {
         gameStarted = true;
+        gameFinished = false;
         startText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(true);
         comboText.gameObject.SetActive(true);
@@ -219,6 +221,7 @@ public class TutorialGameManager : MonoBehaviour
             }
 
             gameStarted = false;
+            gameFinished = true;
         }
     }
 }

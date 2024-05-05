@@ -16262,7 +16262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatTempo: 112
   hasStarted: 0
-  skipDuration: 0
+  skipDuration: 82
 --- !u!4 &797012250
 Transform:
   m_ObjectHideFlags: 0
@@ -40511,6 +40511,7 @@ MonoBehaviour:
   dialogues:
   - "Wow! Congratulations on completing the tutorial. We look forward to seeing you
     on the team ~\u2606"
+  - '*Continues to Level 1 dialogue* (WIP)'
 --- !u!4 &1974714360
 Transform:
   m_ObjectHideFlags: 0
