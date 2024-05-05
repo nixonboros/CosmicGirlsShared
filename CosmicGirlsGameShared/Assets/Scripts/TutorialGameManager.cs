@@ -21,8 +21,8 @@ public class TutorialGameManager : MonoBehaviour
     public static TutorialGameManager instance;
 
     public int currentScore;
-    public int scorePerNote = 100;
-    public int scorePerGoodNote = 125;
+    public int scorePerNormalNote = 50;
+    public int scorePerGoodNote = 100;
     public int scorePerPerfectNote = 150;
 
     public int comboCounter; // Tracks the current combo
@@ -135,7 +135,6 @@ public class TutorialGameManager : MonoBehaviour
     {
         IncrementCombo();
 
-        currentScore += scorePerNote * comboCounter;
         UpdateUI();
 
         hitSound.Play();
@@ -143,18 +142,21 @@ public class TutorialGameManager : MonoBehaviour
 
     public void NormalHit()
     {
+        currentScore += scorePerNormalNote * (comboCounter + 1);
         NoteHit();
-        normalHits++; 
+        normalHits++;
     }
 
     public void GoodHit()
     {
+        currentScore += scorePerGoodNote * (comboCounter + 1);
         NoteHit();
         goodHits++;
     }
 
     public void PerfectHit()
     {
+        currentScore += scorePerPerfectNote * (comboCounter + 1);
         NoteHit();
         perfectHits++;
     }

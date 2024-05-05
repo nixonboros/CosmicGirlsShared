@@ -30054,13 +30054,13 @@ MonoBehaviour:
   hitSound: {fileID: 2078959171}
   tutorialCompletedSound: {fileID: 1857448301}
   BackgroundMusic: {fileID: 737965416}
-  backgroundVideo: {fileID: 0}
+  backgroundVideo: {fileID: 1864027004}
   progressBar: {fileID: 655309976}
   startPlaying: 0
   beatScroller: {fileID: 797012249}
   currentScore: 0
-  scorePerNote: 100
-  scorePerGoodNote: 125
+  scorePerNormalNote: 50
+  scorePerGoodNote: 100
   scorePerPerfectNote: 150
   comboCounter: 0
   maxCombo: 0
