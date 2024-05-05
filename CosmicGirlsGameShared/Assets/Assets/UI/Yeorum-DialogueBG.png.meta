@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4dca1e09a9a930145bd948eada965d13
+guid: a4992bfa3aa9cc941b41dd2cbd802f8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3037770005599636955
-    second: Yeoreum_mouth_open_0
+      213: 7756761285338823443
+    second: Yeorum-DialogueBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,6 +84,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -100,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Yeoreum_mouth_open_0
+      name: Yeorum-DialogueBG_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bdd4a1da9b3582a20800000000000000
-      internalID: 3037770005599636955
+      spriteID: 31b7f1cba4d85ab60800000000000000
+      internalID: 7756761285338823443
       vertices: []
       indices: 
       edges: []
@@ -130,8 +143,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Yeoreum_mouth_open_0: 3037770005599636955
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

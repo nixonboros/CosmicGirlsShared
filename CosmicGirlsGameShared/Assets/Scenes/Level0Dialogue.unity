@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 968858126}
   - component: {fileID: 968858127}
   m_Layer: 0
-  m_Name: Yeoreum_mouth_closed
+  m_Name: Yeoreum_DialogueBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +457,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 5583070748041993499, guid: a86058d3be8b9fc4795e2f5f005e8f53, type: 3}
+  m_Sprite: {fileID: 7756761285338823443, guid: a4992bfa3aa9cc941b41dd2cbd802f8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
