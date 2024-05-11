@@ -17,6 +17,9 @@ public class Lvl1DialogueManager : MonoBehaviour
     private Queue<DialogueLine> lines = new Queue<DialogueLine>();
     public bool isDialogueActive = false;
 
+    private bool isTyping = false;
+    private DialogueLine currentLine;
+
     //[SerializableField]
     public float typingSpeed = 0.2f;
 
@@ -32,12 +35,22 @@ public class Lvl1DialogueManager : MonoBehaviour
     {
         if (isDialogueActive && Input.GetMouseButtonDown(0))
         {
-            DisplayNextDialogueLine();
+            if (!isTyping)
+            {
+                DisplayNextDialogueLine();
+            }
+            else
+            {
+                // Finish current sentence
+                StopAllCoroutines();
+                dialogueArea.text = currentLine.line;
+                isTyping = false;
+            }
         }
     }
 
     public void StartDialogue(Dialogue dialogue)
-  {
+    {
     if (isDialogueActive)
         {
             return;
@@ -51,40 +64,50 @@ public class Lvl1DialogueManager : MonoBehaviour
         lines.Enqueue(dialogueLine);
     }
     DisplayNextDialogueLine();
-  }
+    }
 
-    private void DisplayNextDialogueLine()
+    public void DisplayNextDialogueLine()
     {
-        Debug.Log(lines.Count);
+        Debug.Log("Dialogue Lines Left: " + lines.Count);
         if (lines.Count == 0)
         {
-            Debug.Log("No more dialogue lines. Ending dialogue.");
+            Debug.Log("Dialogue Finished");
             EndDialogue();
             return;
         }
 
-        DialogueLine currentLine = lines.Dequeue();
+        currentLine = lines.Dequeue();
 
         characterIcon.sprite = currentLine.character.icon;
         characterName.text = currentLine.character.name;
 
-        //StopAllCoroutines();
         StartCoroutine(TypeSentence(currentLine));
     }
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
+        isTyping = true;
         dialogueArea.text = "";
         foreach (char letter in dialogueLine.line.ToCharArray())
         {
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+        isTyping = false;
     }
 
     void EndDialogue()
     {
-        isDialogueActive = false;
+        StartCoroutine(EndDialogueCoroutine());
+    }
+
+    IEnumerator EndDialogueCoroutine()
+    {
+        // Wait for a short duration after the text has finished typing
+        yield return new WaitForSeconds(0.1f); // Adjust the duration as needed
+
+        // Switch to the new scene
         SceneManager.LoadScene(sceneName);
+        isDialogueActive = false;
     }
 }
