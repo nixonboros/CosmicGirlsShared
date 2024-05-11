@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
+    public bool FakeNote = false;
 
     public KeyCode keyToPress;
 
@@ -32,47 +33,59 @@ public class NoteObject : MonoBehaviour
                 // Set the x-axis position to where the note was pressed
                 effectPosition.x = notePosition.x;
 
-                if (Mathf.Abs(transform.position.y) > 0.6f)
+
+                if (SceneManager.GetActiveScene().name == "Level3" && FakeNote) // LEVEL 3 FAKE NOTE FUNCTIONALITY
                 {
-                    Debug.Log("Hit");
-                    if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
-                    {
-                        TutorialGameManager.instance.NormalHit();
-                    }
-                    else
-                    {
-                        GameManager.instance.NormalHit();
-                    }
+                    Debug.Log("Fake Note Miss");
+                    GameManager.instance.NoteMissed();
+
                     Destroy(gameObject);
-                    Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
-                }
-                else if (Mathf.Abs(transform.position.y) > 0.4f)
-                {
-                    Debug.Log("Good");
-                    if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
-                    {
-                        TutorialGameManager.instance.GoodHit();
-                    }
-                    else
-                    {
-                        GameManager.instance.GoodHit();
-                    }
-                    Destroy(gameObject);
-                    Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
+                    Instantiate(missEffect, effectPosition, missEffect.transform.rotation);
                 }
                 else
                 {
-                    Debug.Log("Perfect");
-                    if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
+                    if (Mathf.Abs(transform.position.y) > 0.6f)
                     {
-                        TutorialGameManager.instance.PerfectHit();
+                        Debug.Log("Hit");
+                        if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
+                        {
+                            TutorialGameManager.instance.NormalHit();
+                        }
+                        else
+                        {
+                            GameManager.instance.NormalHit();
+                        }
+                        Destroy(gameObject);
+                        Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
+                    }
+                    else if (Mathf.Abs(transform.position.y) > 0.4f)
+                    {
+                        Debug.Log("Good");
+                        if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
+                        {
+                            TutorialGameManager.instance.GoodHit();
+                        }
+                        else
+                        {
+                            GameManager.instance.GoodHit();
+                        }
+                        Destroy(gameObject);
+                        Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
                     }
                     else
                     {
-                        GameManager.instance.PerfectHit();
+                        Debug.Log("Perfect");
+                        if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
+                        {
+                            TutorialGameManager.instance.PerfectHit();
+                        }
+                        else
+                        {
+                            GameManager.instance.PerfectHit();
+                        }
+                        Destroy(gameObject);
+                        Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
                     }
-                    Destroy(gameObject);
-                    Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
                 }
             }
 
@@ -91,31 +104,39 @@ public class NoteObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (gameObject.activeInHierarchy)
+        if (SceneManager.GetActiveScene().name == "Level3" && FakeNote) // LEVEL 3 FAKE NOTE FUNCTIONALITY
         {
             Destroy(gameObject);
-
-            canBePressed = false;
-
-            if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
+        }
+        else
+        {
+            if (gameObject.activeInHierarchy)
             {
-                TutorialGameManager.instance.NoteMissed();
+                Debug.Log("Miss");
+                Destroy(gameObject);
+
+                canBePressed = false;
+
+                if (SceneManager.GetActiveScene().name == "Level0" || SceneManager.GetActiveScene().name == "Level0Tutorial")
+                {
+                    TutorialGameManager.instance.NoteMissed();
+                }
+                else
+                {
+                    GameManager.instance.NoteMissed();
+                }
+
+                // Get the x-axis position where the note was pressed
+                Vector3 notePosition = transform.position;
+
+                // Set the y-axis position to the bottom 3/4 of the screen
+                Vector3 effectPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 4, Camera.main.nearClipPlane));
+
+                // Set the x-axis position to where the note was pressed
+                effectPosition.x = notePosition.x;
+
+                Instantiate(missEffect, effectPosition, missEffect.transform.rotation);
             }
-            else
-            {
-                GameManager.instance.NoteMissed();
-            }
-
-            // Get the x-axis position where the note was pressed
-            Vector3 notePosition = transform.position;
-
-            // Set the y-axis position to the bottom 3/4 of the screen
-            Vector3 effectPosition = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 4, Camera.main.nearClipPlane));
-
-            // Set the x-axis position to where the note was pressed
-            effectPosition.x = notePosition.x;
-
-            Instantiate(missEffect, effectPosition, missEffect.transform.rotation);
         }
     }
 }
