@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Lvl1DialogueManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Lvl1DialogueManager : MonoBehaviour
     public Image characterIcon;
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
+    public string sceneName;
 
     private Queue<DialogueLine> lines = new Queue<DialogueLine>();
     public bool isDialogueActive = false;
@@ -56,6 +58,7 @@ public class Lvl1DialogueManager : MonoBehaviour
     {
         if (lines.Count == 0)
         {
+            Debug.Log("No more dialogue lines. Ending dialogue.");
             EndDialogue();
             return;
         }
@@ -82,5 +85,6 @@ public class Lvl1DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
+        SceneManager.LoadScene(sceneName);
     }
 }
