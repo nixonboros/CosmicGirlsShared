@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene("MainMenu");
+                    SceneManager.LoadScene("Level1Dialogue");
                 }
             }
         }

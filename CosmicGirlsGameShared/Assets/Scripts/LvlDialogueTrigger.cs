@@ -24,7 +24,7 @@ public class Dialogue
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
 }
 
-public class Lvl1DialogueTrigger : MonoBehaviour
+public class LvlDialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
@@ -38,6 +38,6 @@ public class Lvl1DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        Lvl1DialogueManager.Instance.StartDialogue(dialogue);
+        LvlDialogueManager.Instance.StartDialogue(dialogue);
     }
 }

@@ -40773,7 +40773,6 @@ MonoBehaviour:
   dialogues:
   - "Wow! Congratulations on completing the tutorial. We look forward to seeing you
     on the team ~\u2606"
-  - '*Continues to Level 1 dialogue* (WIP)'
 --- !u!4 &1974714360
 Transform:
   m_ObjectHideFlags: 0

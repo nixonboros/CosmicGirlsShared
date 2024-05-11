@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class Lvl1DialogueManager : MonoBehaviour
+public class LvlDialogueManager : MonoBehaviour
 {
-    public static Lvl1DialogueManager Instance;
+    public static LvlDialogueManager Instance;
 
     public Image characterIcon;
     public TextMeshProUGUI characterName;
