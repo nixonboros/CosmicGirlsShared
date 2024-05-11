@@ -22,15 +22,15 @@ public class Lvl1DialogueManager : MonoBehaviour
 
     
 
-    private void Start()
+    public void Start()
     {
         if (Instance == null)
             Instance = this;
     }
 
-    private void Update()
+    public void Update()
     {
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.E))
+        if (isDialogueActive && Input.GetMouseButtonDown(0))
         {
             DisplayNextDialogueLine();
         }
@@ -40,7 +40,6 @@ public class Lvl1DialogueManager : MonoBehaviour
   {
     if (isDialogueActive)
         {
-            Debug.LogWarning("Dialogue is already active. Cannot start a new dialogue.");
             return;
         }
 
@@ -56,6 +55,7 @@ public class Lvl1DialogueManager : MonoBehaviour
 
     private void DisplayNextDialogueLine()
     {
+        Debug.Log(lines.Count);
         if (lines.Count == 0)
         {
             Debug.Log("No more dialogue lines. Ending dialogue.");

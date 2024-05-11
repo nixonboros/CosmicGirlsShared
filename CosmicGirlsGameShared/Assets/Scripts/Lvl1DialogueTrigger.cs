@@ -30,7 +30,7 @@ public class Lvl1DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             TriggerDialogue();
         }
