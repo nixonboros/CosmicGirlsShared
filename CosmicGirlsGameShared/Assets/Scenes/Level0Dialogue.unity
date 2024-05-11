@@ -629,7 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2069438857}
   dialogues:
-  - Press 'Mouse1' to continue.
+  - Press 'Mouse1' to continue...
   - "Welcome to Cosmic Girls K-pop group!! As part of our group, you\u2019ll join
     our journey and help us practice our songs to build our fanbase and become a
     famous K-pop group ^^"
