@@ -57,6 +57,7 @@ public class TutorialGameManager : MonoBehaviour
         scoreText.gameObject.SetActive(false);
         comboText.gameObject.SetActive(false);
         progressBar.gameObject.SetActive(false);
+        buttonCanvas.SetActive(false);
         comboCounter = 0;
         maxCombo = 0;
 
@@ -123,6 +124,7 @@ public class TutorialGameManager : MonoBehaviour
         comboText.gameObject.SetActive(true);
         progressBar.gameObject.SetActive(true);
         PlayfieldPanel.gameObject.SetActive(true);
+        buttonCanvas.SetActive(true);
 
         if (backgroundVideo != null)
         {
