@@ -10,14 +10,24 @@ public class NoteObject : MonoBehaviour
 
     public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
 
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y > 5f)
+        {
+            spriteRenderer.color = Color.Lerp(originalColor, new Color(originalColor.r, originalColor.g, originalColor.b, 0), (transform.position.y - 5f) / 5f);
+        }
+
         if (Input.GetKeyDown(keyToPress))
         {
             if (canBePressed)
@@ -32,7 +42,6 @@ public class NoteObject : MonoBehaviour
 
                 // Set the x-axis position to where the note was pressed
                 effectPosition.x = notePosition.x;
-
 
                 if (SceneManager.GetActiveScene().name == "Level3" && FakeNote) // LEVEL 3 FAKE NOTE FUNCTIONALITY
                 {
@@ -88,9 +97,7 @@ public class NoteObject : MonoBehaviour
                     }
                 }
             }
-
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -98,7 +105,6 @@ public class NoteObject : MonoBehaviour
         if (other.tag == "Activator")
         {
             canBePressed = true;
-
         }
     }
 
