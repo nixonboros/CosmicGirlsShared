@@ -3110,6 +3110,7 @@ GameObject:
   - component: {fileID: 228566814}
   - component: {fileID: 228566813}
   - component: {fileID: 228566812}
+  - component: {fileID: 228566816}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
@@ -3242,6 +3243,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228566810}
   m_CullTransparentMesh: 1
+--- !u!114 &228566816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228566810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327d4f756413bc94e914af2baa3e2780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound: {fileID: 8300000, guid: 16b9dde0e75bd944084b2011528c9094, type: 3}
 --- !u!1 &261603378
 GameObject:
   m_ObjectHideFlags: 0
