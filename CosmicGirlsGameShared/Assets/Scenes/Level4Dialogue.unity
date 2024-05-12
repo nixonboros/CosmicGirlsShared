@@ -484,7 +484,7 @@ MonoBehaviour:
   characterIcon: {fileID: 1797082603}
   characterName: {fileID: 2082167886}
   dialogueArea: {fileID: 440284749}
-  sceneName: Level1
+  sceneName: Level4
   isDialogueActive: 0
   typingSpeed: 0.02
 --- !u!1 &1557369493
@@ -671,52 +671,52 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Yeon Jung
-        icon: {fileID: 21300000, guid: 2e528bc03f39aed4c84ad1fdb9b5f173, type: 3}
-      line: I can't believe we're finally debuting! It's so exciting!
-    - character:
         name: Bona
         icon: {fileID: 21300000, guid: 73b048fa76f623a4c956990c5221dc7b, type: 3}
-      line: I know! But I'm still a little nervous... What if our fans don't like
-        our songs?
+      line: "Finally! We\u2019ve started going on tours again!"
     - character:
         name: Dawon
         icon: {fileID: 21300000, guid: c788d650ab070d941ba699e28c87305b, type: 3}
-      line: We've been working so hard on our first album 'Would You Like?' I'm sure
-        they're going to love it.
+      line: "Not only that, but we were invited to the show \u2018Queendom\u2019
+        to compete against other girl K-Pop groups\u2026 and we won!!"
     - character:
         name: Yeoreum
         icon: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}
-      line: Exactly. We just have to give it our all!
-    - character:
-        name: Bona
-        icon: {fileID: 21300000, guid: 668def0a7318f3f49821fa6dc6a11057, type: 3}
-      line: You're right! What should we start with?
+      line: "Amazing work everyone! We\u2019ve come so far since we first debuted
+        six years ago. I\u2019m so proud of all of us!"
     - character:
         name: Yeon Jung
         icon: {fileID: 21300000, guid: 2e528bc03f39aed4c84ad1fdb9b5f173, type: 3}
-      line: Hmm... How about we start with 'MoMoMo'?
-    - character:
-        name: Yeoreum
-        icon: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}
-      line: Sounds like a plan!
+      line: "To commemorate all of our accomplishments, let\u2019s perform one of
+        our songs from our newest album \u2018Sequence\u2019."
     - character:
         name: Yeoreum
         icon: {fileID: 21300000, guid: b1ea5285dfb3979408f66f1e88fea83a, type: 3}
-      line: Oh, before I forget, we have a new move.
+      line: "How about \u2018Last Sequence\u2019?"
+    - character:
+        name: Bona
+        icon: {fileID: 21300000, guid: 73b048fa76f623a4c956990c5221dc7b, type: 3}
+      line: "Okay! But we should also include our Ujung too. They\u2019ve supported
+        us the whole journey and it wouldn't be the same without them."
+    - character:
+        name: Dawon
+        icon: {fileID: 21300000, guid: c788d650ab070d941ba699e28c87305b, type: 3}
+      line: Great idea!
     - character:
         name: Dawon
         icon: {fileID: 21300000, guid: 8624d1c07f0a08a49b9cef277e3e4916, type: 3}
-      line: Ooo, what is it?
+      line: "To interact with our Ujung, press the \u2018S\u2019 key when a chatbox
+        appears on the left and the \u2018L\u2019 key when a chatbox appears on the
+        right to earn extra points! "
     - character:
-        name: Yeoreum
-        icon: {fileID: 21300000, guid: b1ea5285dfb3979408f66f1e88fea83a, type: 3}
-      line: We now have HOLD notes! To hold a note, simply hold the key of the note
-        down and release it on time.
+        name: Dawon
+        icon: {fileID: 21300000, guid: 8624d1c07f0a08a49b9cef277e3e4916, type: 3}
+      line: Watch out for the chatboxes with with a cross in them, hitting them will
+        make you lose points.
     - character:
         name: Yeoreum
         icon: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}
-      line: Get ready to try it out!
+      line: "Okay, let\u2019s do this!!"
 --- !u!1 &1797082602
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c9951905af456ab4080ec65875a0cf41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 668def0a7318f3f49821fa6dc6a11057, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yeon Jung
+  m_text: Bona
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b46a8a87cb81c1b4fbf79d2bb18e6362, type: 2}
   m_sharedMaterial: {fileID: 2900026382063548059, guid: b46a8a87cb81c1b4fbf79d2bb18e6362, type: 2}

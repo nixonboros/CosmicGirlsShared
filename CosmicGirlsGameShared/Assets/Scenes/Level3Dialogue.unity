@@ -484,7 +484,7 @@ MonoBehaviour:
   characterIcon: {fileID: 1797082603}
   characterName: {fileID: 2082167886}
   dialogueArea: {fileID: 440284749}
-  sceneName: Level1
+  sceneName: Level3
   isDialogueActive: 0
   typingSpeed: 0.02
 --- !u!1 &1557369493
@@ -671,52 +671,49 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Yeon Jung
-        icon: {fileID: 21300000, guid: 2e528bc03f39aed4c84ad1fdb9b5f173, type: 3}
-      line: I can't believe we're finally debuting! It's so exciting!
+        name: Yeoreum
+        icon: {fileID: 21300000, guid: b1ea5285dfb3979408f66f1e88fea83a, type: 3}
+      line: "This year has been really tough, hasn\u2019t it\u2026"
     - character:
         name: Bona
         icon: {fileID: 21300000, guid: 73b048fa76f623a4c956990c5221dc7b, type: 3}
-      line: I know! But I'm still a little nervous... What if our fans don't like
-        our songs?
-    - character:
-        name: Dawon
-        icon: {fileID: 21300000, guid: c788d650ab070d941ba699e28c87305b, type: 3}
-      line: We've been working so hard on our first album 'Would You Like?' I'm sure
-        they're going to love it.
-    - character:
-        name: Yeoreum
-        icon: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}
-      line: Exactly. We just have to give it our all!
-    - character:
-        name: Bona
-        icon: {fileID: 21300000, guid: 668def0a7318f3f49821fa6dc6a11057, type: 3}
-      line: You're right! What should we start with?
+      line: "With everything that\u2019s happened with COVID-19, we can\u2019t perform
+        anymore."
     - character:
         name: Yeon Jung
         icon: {fileID: 21300000, guid: 2e528bc03f39aed4c84ad1fdb9b5f173, type: 3}
-      line: Hmm... How about we start with 'MoMoMo'?
+      line: "Our tours have all been canceled and we can\u2019t even meet our Ujung."
     - character:
-        name: Yeoreum
-        icon: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}
-      line: Sounds like a plan!
-    - character:
-        name: Yeoreum
-        icon: {fileID: 21300000, guid: b1ea5285dfb3979408f66f1e88fea83a, type: 3}
-      line: Oh, before I forget, we have a new move.
+        name: Bona
+        icon: {fileID: 21300000, guid: 73b048fa76f623a4c956990c5221dc7b, type: 3}
+      line: How can we make it up to them?
     - character:
         name: Dawon
-        icon: {fileID: 21300000, guid: 8624d1c07f0a08a49b9cef277e3e4916, type: 3}
-      line: Ooo, what is it?
+        icon: {fileID: 21300000, guid: c788d650ab070d941ba699e28c87305b, type: 3}
+      line: "As idols, it\u2019s our job to lift everyone\u2019s spirits in times
+        like these. We can share our music with them!"
     - character:
-        name: Yeoreum
-        icon: {fileID: 21300000, guid: b1ea5285dfb3979408f66f1e88fea83a, type: 3}
-      line: We now have HOLD notes! To hold a note, simply hold the key of the note
-        down and release it on time.
+        name: Yeon Jung
+        icon: {fileID: 21300000, guid: c9951905af456ab4080ec65875a0cf41, type: 3}
+      line: "You\u2019re right! We should focus on our next album \u2019Neverland\u2019."
     - character:
-        name: Yeoreum
-        icon: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}
-      line: Get ready to try it out!
+        name: Bona
+        icon: {fileID: 21300000, guid: 668def0a7318f3f49821fa6dc6a11057, type: 3}
+      line: "Why don\u2019t we practice with \u2018Butterfly\u2019? "
+    - character:
+        name: Dawon
+        icon: {fileID: 21300000, guid: c788d650ab070d941ba699e28c87305b, type: 3}
+      line: Okay!
+    - character:
+        name: Bona
+        icon: {fileID: 21300000, guid: 73b048fa76f623a4c956990c5221dc7b, type: 3}
+      line: But first, our songs are starting to get harder and we need to be careful
+        to not make mistakes.
+    - character:
+        name: Bona
+        icon: {fileID: 21300000, guid: 668def0a7318f3f49821fa6dc6a11057, type: 3}
+      line: There will now be red arrows that must be avoided to help us perform
+        better. Watch out!
 --- !u!1 &1797082602
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c9951905af456ab4080ec65875a0cf41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -957,7 +954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yeon Jung
+  m_text: Yeoreum
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b46a8a87cb81c1b4fbf79d2bb18e6362, type: 2}
   m_sharedMaterial: {fileID: 2900026382063548059, guid: b46a8a87cb81c1b4fbf79d2bb18e6362, type: 2}
