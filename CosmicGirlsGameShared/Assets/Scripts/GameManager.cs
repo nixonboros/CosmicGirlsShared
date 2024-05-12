@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public AudioSource hitSound;
     public VideoPlayer backgroundVideo;
     public Slider progressBar;
+    public AudioSource crossSound;
+    public AudioSource chatboxSound;
 
     public bool startPlaying;
 
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
     public int scorePerNormalNote = 50;
     public int scorePerGoodNote = 100;
     public int scorePerPerfectNote = 150;
+    public int scorePerChatbox = 14900;
 
     public int comboCounter; // Tracks the current combo
     public int maxCombo; // Tracks the maximum combo achieved
@@ -35,9 +38,10 @@ public class GameManager : MonoBehaviour
     public float goodHits;
     public float perfectHits;
     public float missedHits;
+    public float chatboxHits;
 
     public GameObject resultsScreen;
-    public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
+    public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText, chatboxText;
 
     public bool gameStarted;
     public delegate void GameStartedAction();
@@ -94,6 +98,7 @@ public class GameManager : MonoBehaviour
                     goodsText.text = goodHits.ToString(); //display value as string
                     perfectsText.text = perfectHits.ToString();
                     missesText.text = "" + missedHits;
+                    chatboxText.text = chatboxHits.ToString();
 
                     float totalHit = normalHits + goodHits + perfectHits;
                     float percentHit = (totalHit / totalNotes) * 100f;
@@ -174,6 +179,30 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerPerfectNote * (comboCounter + 1);
         NoteHit();
         perfectHits++;
+    }
+
+    public void ChatboxHit()
+    {
+        currentScore += scorePerChatbox;
+        NoteHit();
+
+        chatboxHits++;
+
+        if (chatboxSound != null)
+        {
+            chatboxSound.Play();
+        }
+    }
+
+    public void CrossHit()
+    {
+        currentScore -= scorePerChatbox;
+
+        if (crossSound != null)
+        {
+            Debug.Log("BOOM");
+            crossSound.Play();
+        }
     }
 
     public void NoteMissed()
