@@ -707,15 +707,11 @@ MonoBehaviour:
     - character:
         name: Yeon Jung
         icon: {fileID: 21300000, guid: 2e528bc03f39aed4c84ad1fdb9b5f173, type: 3}
-      line: Same! It's also where we will be introducing....
-    - character:
-        name: Yeon Jung
-        icon: {fileID: 21300000, guid: 2e528bc03f39aed4c84ad1fdb9b5f173, type: 3}
-      line: To do......
+      line: 'Same! '
     - character:
         name: Yeon Jung
         icon: {fileID: 21300000, guid: c9951905af456ab4080ec65875a0cf41, type: 3}
-      line: Have a try!
+      line: Good luck!
 --- !u!1 &1797082602
 GameObject:
   m_ObjectHideFlags: 0
