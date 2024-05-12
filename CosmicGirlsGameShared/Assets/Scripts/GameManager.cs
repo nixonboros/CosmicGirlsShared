@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
         music.time = beatScroller.skipDuration;
 
         progressBar.maxValue = musicLength;
+
+        buttonCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -149,6 +151,7 @@ public class GameManager : MonoBehaviour
         scoreText.gameObject.SetActive(true);
         comboText.gameObject.SetActive(true);
         progressBar.gameObject.SetActive(true);
+        buttonCanvas.SetActive(true);
 
         if (backgroundVideo != null)
         {
