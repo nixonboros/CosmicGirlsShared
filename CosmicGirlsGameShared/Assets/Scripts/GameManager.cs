@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text comboText;
     public Text startText; // Text to display "Press Space to Start"
+    public AudioSource CompletedSound;
 
     public float musicLength; // Length of the music clip
 
@@ -98,6 +99,11 @@ public class GameManager : MonoBehaviour
             {
                 if (!music.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
                 {
+                    if (CompletedSound != null)
+                    {
+                        CompletedSound.Play();
+                    }
+
                     buttonCanvas.SetActive(false);
 
                     resultsScreen.SetActive(true);

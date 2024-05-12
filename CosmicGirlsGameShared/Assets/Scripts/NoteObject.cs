@@ -24,9 +24,9 @@ public class NoteObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y > 5f)
+        if (transform.position.y > 6f)
         {
-            spriteRenderer.color = Color.Lerp(originalColor, new Color(originalColor.r, originalColor.g, originalColor.b, 0), (transform.position.y - 5f) / 5f);
+            spriteRenderer.color = Color.Lerp(originalColor, new Color(originalColor.r, originalColor.g, originalColor.b, 0), (transform.position.y - 6f) / 6f);
         }
 
         if (HiddenNote && transform.position.y > 3f)
