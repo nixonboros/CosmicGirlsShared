@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click 'Mouse1' to continue
+  m_text: This year is 2020.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0af4b6b0bfdf3f42a74bdbea706544b, type: 2}
   m_sharedMaterial: {fileID: 1849975321038523640, guid: f0af4b6b0bfdf3f42a74bdbea706544b, type: 2}
@@ -712,8 +712,8 @@ MonoBehaviour:
     - character:
         name: Bona
         icon: {fileID: 21300000, guid: 668def0a7318f3f49821fa6dc6a11057, type: 3}
-      line: There will now be red arrows that must be avoided to help us perform
-        better. Watch out!
+      line: There will now be red notes that must be avoided to help us perform better.
+        Watch out!
 --- !u!1 &1797082602
 GameObject:
   m_ObjectHideFlags: 0

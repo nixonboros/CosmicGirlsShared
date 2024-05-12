@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click 'Mouse1' to continue
+  m_text: This year is 2022.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0af4b6b0bfdf3f42a74bdbea706544b, type: 2}
   m_sharedMaterial: {fileID: 1849975321038523640, guid: f0af4b6b0bfdf3f42a74bdbea706544b, type: 2}
@@ -711,8 +711,8 @@ MonoBehaviour:
     - character:
         name: Dawon
         icon: {fileID: 21300000, guid: 8624d1c07f0a08a49b9cef277e3e4916, type: 3}
-      line: Watch out for the chatboxes with with a cross in them, hitting them will
-        make you lose points.
+      line: Watch out for the chatboxes with a cross in them, hitting them will make
+        you lose points.
     - character:
         name: Yeoreum
         icon: {fileID: 21300000, guid: 875329fc169c1844db996817a46e41de, type: 3}

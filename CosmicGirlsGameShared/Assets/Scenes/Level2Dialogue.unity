@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click 'Mouse1' to continue
+  m_text: This year is 2018.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0af4b6b0bfdf3f42a74bdbea706544b, type: 2}
   m_sharedMaterial: {fileID: 1849975321038523640, guid: f0af4b6b0bfdf3f42a74bdbea706544b, type: 2}
