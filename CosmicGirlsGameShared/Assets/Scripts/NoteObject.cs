@@ -5,6 +5,7 @@ public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
     public bool FakeNote = false;
+    public bool HiddenNote = false;
 
     public KeyCode keyToPress;
 
@@ -26,6 +27,11 @@ public class NoteObject : MonoBehaviour
         if (transform.position.y > 5f)
         {
             spriteRenderer.color = Color.Lerp(originalColor, new Color(originalColor.r, originalColor.g, originalColor.b, 0), (transform.position.y - 5f) / 5f);
+        }
+
+        if (HiddenNote && transform.position.y > 3f)
+        {
+            spriteRenderer.color = Color.Lerp(originalColor, new Color(originalColor.r, originalColor.g, originalColor.b, 0), (transform.position.y - 3f) / 3f);
         }
 
         if (Input.GetKeyDown(keyToPress))
