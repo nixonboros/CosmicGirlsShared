@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     public BeatScroller beatScroller;
 
     public static GameManager instance;
+
+    public GameObject buttonCanvas;
 
     public int currentScore;
     public int scorePerNormalNote = 50;
@@ -41,7 +44,7 @@ public class GameManager : MonoBehaviour
     public float chatboxHits;
 
     public GameObject resultsScreen;
-    public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText, chatboxText;
+    public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText, resultsComboText, chatboxText;
 
     public bool gameStarted;
     public delegate void GameStartedAction();
@@ -93,12 +96,17 @@ public class GameManager : MonoBehaviour
             {
                 if (!music.isPlaying && !resultsScreen.activeInHierarchy) //if results screen isnt up, and music is done
                 {
+                    buttonCanvas.SetActive(false);
+
                     resultsScreen.SetActive(true);
                     normalsText.text = "" + normalHits;
                     goodsText.text = goodHits.ToString(); //display value as string
                     perfectsText.text = perfectHits.ToString();
                     missesText.text = "" + missedHits;
-                    chatboxText.text = chatboxHits.ToString();
+                    if (SceneManager.GetActiveScene().name == "Level4")
+                    {
+                        chatboxText.text = chatboxHits.ToString();
+                    }
 
                     float totalHit = normalHits + goodHits + perfectHits;
                     float percentHit = (totalHit / totalNotes) * 100f;
@@ -220,6 +228,7 @@ public class GameManager : MonoBehaviour
         if (comboCounter > maxCombo)
         {
             maxCombo = comboCounter;
+            resultsComboText.text = maxCombo.ToString();
         }
     }
 
